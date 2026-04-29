@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
                 <a href="#home" className="flex items-center gap-2.5 shrink-0 group">
                     <div className="h-8 w-8 flex items-center justify-center rounded-lg border bg-(--primary-color)/10 border-(--primary-color)/25 group-hover:bg-(--primary-color)/20 transition-colors duration-200">
-                        <Building2 size={18} color="#E8799A" strokeWidth={1.5} />
+                        <Building2 size={18} color="var(--primary-color)" strokeWidth={1.5} />
                     </div>
                     <span className="text-sm font-semibold tracking-wide text-(--secondary-color)/80 group-hover:text-(--secondary-color) transition-colors duration-200">
                         Entrepreneurs

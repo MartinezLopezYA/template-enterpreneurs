@@ -1,64 +1,60 @@
 @import "tailwindcss";
 
+/* ── Default theme (Blue) ─────────────────────────────────── */
 :root {
-  /* Rosa pastel para botones y CTAs */
+  --primary-color: #2563EB;
+  --primary-color-hover: #3B82F6;
+  --secondary-color: #0C1628;
+  --secondary-color-hover: #172034;
+  --surface-color: #EFF6FF;
+  --bg-color: #EFF6FF;
+  --accent-color: #60A5FA;
+  --border-color: #1E293B;
+  --bg-card-color: #FFFFFF05;
+  --bg-card-color-hover: #FFFFFF08;
+}
+
+/* ── Pink theme ───────────────────────────────────────────── */
+[data-theme="pink"] {
   --primary-color: #E8799A;
   --primary-color-hover: #F48FB1;
-
-  /* Negro con subtono cálido para fondos */
   --secondary-color: #0F0A0D;
   --secondary-color-hover: #1A1218;
-
-  --bg-color: #FFF0F5;
-
-
-  /* Rosa muy claro para texto sobre oscuros */
   --surface-color: #FFF0F5;
-
-  /* Rosa suave para highlights */
+  --bg-color: #FFF0F5;
   --accent-color: #F9A8C9;
-
   --border-color: #2A1520;
   --bg-card-color: #FFFFFF05;
   --bg-card-color-hover: #FFFFFF08;
 }
 
+/* ── Sport theme (Green) ──────────────────────────────────── */
+[data-theme="sport"] {
+  --primary-color: #16A34A;
+  --primary-color-hover: #22C55E;
+  --secondary-color: #052E16;
+  --secondary-color-hover: #064E3B;
+  --surface-color: #F0FDF4;
+  --bg-color: #F0FDF4;
+  --accent-color: #4ADE80;
+  --border-color: #14532D;
+  --bg-card-color: #FFFFFF05;
+  --bg-card-color-hover: #FFFFFF08;
+}
 
-
-/* @theme inline { */
-/* --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --card: #1e1e1e;
-    --card-foreground: #ededed;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-    --accent: #1e293b;
-    --accent-foreground: #ededed;
-    --border: #334155;
-    --input: #334155;
-  }
-} */
+/* ── Enterprise theme (Violet) ────────────────────────────── */
+[data-theme="enterprise"] {
+  --primary-color: #7C3AED;
+  --primary-color-hover: #8B5CF6;
+  --secondary-color: #0F0A1E;
+  --secondary-color-hover: #1A1235;
+  --surface-color: #F5F3FF;
+  --bg-color: #F5F3FF;
+  --accent-color: #A78BFA;
+  --border-color: #2E1065;
+  --bg-card-color: #FFFFFF05;
+  --bg-card-color-hover: #FFFFFF08;
+}
 
 @layer base {
   * {
@@ -95,8 +91,14 @@ body {
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1), 0 -6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* @media (width <=760px) {
 } */

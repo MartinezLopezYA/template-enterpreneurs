@@ -2,6 +2,7 @@
 
 import { Book, Building2, House, Menu, MessagesSquare, ShoppingCart, X, CircleQuestionMark } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 
 const items = [
     { name: 'Inicio',      route: '#home',    id: 'home',    icon: House },
@@ -47,15 +48,15 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`fixed top-0 w-full z-50 flex justify-center bg-white backdrop-blur-md transition-all duration-300 ${
+        <header className={`fixed top-0 w-full z-50 flex justify-center backdrop-blur-md transition-all duration-300 ${
             scrolled
-                ? 'bg-(--surface-color)/95 shadow-[0_1px_0_0_rgba(232,121,154,0.2),0_8px_32px_-8px_rgba(232,121,154,0.12)]'
-                : 'bg-(--surface-color)/80'
+                ? 'bg-(--surface-color) shadow-[0_1px_0_0_var(--primary-color)/2,0_8px_32px_-8px_var(--primary-color)/12]'
+                : 'bg-(--surface-color)'
         }`}>
             <div className="w-full max-w-7xl px-6 h-16 flex items-center gap-6">
                 <a href="#home" className="flex items-center gap-2.5 shrink-0 group">
                     <div className="h-8 w-8 flex items-center justify-center rounded-lg border bg-(--primary-color)/10 border-(--primary-color)/25 group-hover:bg-(--primary-color)/20 transition-colors duration-200">
-                        <Building2 size={18} color="#E8799A" strokeWidth={1.5} />
+                        <Building2 size={18} color="var(--primary-color)" strokeWidth={1.5} />
                     </div>
                     <span className="text-sm font-semibold tracking-wide text-(--secondary-color)/80 group-hover:text-(--secondary-color) transition-colors duration-200">
                         Entrepreneurs
@@ -66,16 +67,12 @@ export default function Header() {
                         const Icon = item.icon;
                         const isActive = active === item.id;
                         return (
-                            <a
-                                href={item.route}
-                                key={item.route}
-                                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                    isActive
-                                        ? 'text-(--primary-color) bg-(--primary-color)/10'
-                                        : 'text-(--secondary-color)/50 hover:text-(--secondary-color)/80 hover:bg-(--secondary-color)/5'
-                                }`}
-                            >
-                                <Icon size={15} strokeWidth={isActive ? 2 : 1.5} color={isActive ? '#E8799A' : 'currentColor'} />
+                            <a href={item.route} key={item.route} className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                                isActive
+                                    ? 'text-(--primary-color) bg-(--primary-color)/10'
+                                    : 'text-(--secondary-color)/50 hover:text-(--secondary-color)/80 hover:bg-(--secondary-color)/5'
+                            }`}>
+                                <Icon size={15} strokeWidth={isActive ? 2 : 1.5} color={isActive ? 'var(--primary-color)' : 'currentColor'} />
                                 {item.name}
                                 {isActive && (
                                     <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-(--primary-color)" />
@@ -86,6 +83,7 @@ export default function Header() {
                 </nav>
 
                 <div className="flex items-center gap-2 ml-auto">
+                    <ThemeSwitcher />
                     <button className="relative group flex items-center justify-center h-9 w-9 rounded-lg border border-(--primary-color)/25 bg-(--primary-color)/5 hover:border-(--primary-color)/50 hover:bg-(--primary-color)/15 transition-all duration-200 cursor-pointer">
                         <ShoppingCart size={17} strokeWidth={1.5} className="text-(--secondary-color)/45 group-hover:text-(--primary-color) transition-colors duration-200" />
                     </button>
@@ -93,10 +91,10 @@ export default function Header() {
                     <div ref={menuRef} className="relative flex md:hidden">
                         <button onClick={() => setIsOpen(prev => !prev)} className="flex items-center justify-center h-9 w-9 rounded-lg border border-(--primary-color)/25 bg-(--primary-color)/5 hover:border-(--primary-color)/50 hover:bg-(--primary-color)/15 transition-all duration-200" aria-label="Toggle menu" >
                             <span className={`absolute transition-all duration-200 ${isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}>
-                                <X size={17} color="#E8799A" strokeWidth={2} />
+                                <X size={17} color="var(--primary-color)" strokeWidth={2} />
                             </span>
                             <span className={`absolute transition-all duration-200 ${isOpen ? 'opacity-0 -rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}>
-                                <Menu size={17} color="#E8799A" strokeWidth={2} />
+                                <Menu size={17} color="var(--primary-color)" strokeWidth={2} />
                             </span>
                         </button>
 
@@ -116,7 +114,7 @@ export default function Header() {
                                                 : 'text-(--secondary-color)/55 hover:text-(--secondary-color)/85 hover:bg-(--secondary-color)/5'
                                             } ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-3'}`}
                                         >
-                                            <Icon size={15} strokeWidth={isActive ? 2 : 1.5} color={isActive ? '#E8799A' : 'currentColor'} />
+                                            <Icon size={15} strokeWidth={isActive ? 2 : 1.5} color={isActive ? 'var(--primary-color)' : 'currentColor'} />
                                             {item.name}
                                             {isActive && (
                                                 <span className="ml-auto h-1.5 w-1.5 rounded-full bg-(--primary-color)" />
@@ -132,7 +130,6 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </header>
     );
