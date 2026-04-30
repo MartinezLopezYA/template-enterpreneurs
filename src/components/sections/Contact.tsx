@@ -2,12 +2,19 @@
 
 import { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import config from '@/lib/config';
 
 export default function Contact() {
     const [form, setForm] = useState({ who: '', description: '' })
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
+        if (!form.who.trim() || !form.description.trim()) return;
+        const message = `Hola! Soy *${form.who.trim()}*.\n\n${form.description.trim()}`;
+        window.open(
+            `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`,
+            '_blank'
+        );
     }
 
     const Chat = FaWhatsapp;

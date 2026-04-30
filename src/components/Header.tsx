@@ -3,6 +3,7 @@
 import { Book, Building2, House, Menu, MessagesSquare, ShoppingCart, X, CircleQuestionMark } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import { useCart } from '@/context/CartContext';
 
 const items = [
     { name: 'Inicio',      route: '#home',    id: 'home',    icon: House },
@@ -16,6 +17,7 @@ export default function Header() {
     const [isOpen,   setIsOpen]   = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const { count, openCart } = useCart();
 
     useEffect(() => {
         const observers: IntersectionObserver[] = [];
@@ -84,8 +86,13 @@ export default function Header() {
 
                 <div className="flex items-center gap-2 ml-auto">
                     <ThemeSwitcher />
-                    <button className="relative group flex items-center justify-center h-9 w-9 rounded-lg border border-(--primary-color)/25 bg-(--primary-color)/5 hover:border-(--primary-color)/50 hover:bg-(--primary-color)/15 transition-all duration-200 cursor-pointer">
+                    <button onClick={openCart} className="relative group flex items-center justify-center h-9 w-9 rounded-lg border border-(--primary-color)/25 bg-(--primary-color)/5 hover:border-(--primary-color)/50 hover:bg-(--primary-color)/15 transition-all duration-200 cursor-pointer">
                         <ShoppingCart size={17} strokeWidth={1.5} className="text-(--secondary-color)/45 group-hover:text-(--primary-color) transition-colors duration-200" />
+                        {count > 0 && (
+                            <span className="absolute -top-1.5 -right-1.5 h-4 w-4 flex items-center justify-center rounded-full bg-(--primary-color) text-white text-[9px] font-bold">
+                                {count > 9 ? '9+' : count}
+                            </span>
+                        )}
                     </button>
 
                     <div ref={menuRef} className="relative flex md:hidden">
