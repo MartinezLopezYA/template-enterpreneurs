@@ -2,7 +2,7 @@ const config = {
     businessName: 'Zentriq',
     tagline: 'Emprendimientos con impacto',
     description: 'Productos únicos para expresar quién eres.',
-    whatsapp: '573182848957',
+    whatsapp: '573XXXXXXXXXX',
     currency: 'COP' as const,
     locale: 'es-CO',
     social: {
