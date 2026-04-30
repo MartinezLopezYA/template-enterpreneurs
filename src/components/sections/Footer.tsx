@@ -7,22 +7,22 @@ export default function Footer() {
     const socials = [
         {
             name: 'Whatsapp',
-            url: 'https://www.facebook.com/zentriq/',
+            // url: 'https://www.facebook.com/zentriq/',
             icon: FaWhatsapp
         },
         {
             name: 'Facebook',
-            url: 'https://www.facebook.com/profile.php?id=61586507270201',
+            // url: 'https://www.facebook.com/profile.php?id=61586507270201',
             icon: FaFacebook
         },
         {
             name: 'Instagram',
-            url: 'https://www.instagram.com/zentriq41/',
+            // url: 'https://www.instagram.com/zentriq41/',
             icon: FaInstagram
         },
         {
             name: 'TikTok',
-            url: 'https://www.tiktok.com/@zentriq5',
+            // url: 'https://www.tiktok.com/@zentriq5',
             icon: FaTiktok
         }
     ]
@@ -46,9 +46,9 @@ export default function Footer() {
                     {socials.map((social) => {
                         const Icon = social.icon;
                         return (
-                        <a href={social.url} target="_blank" key={social.name} rel="noopener noreferrer" className="text-(--primary-color) hover:text-(--secondary-color)/80 w-6 h-6 hover:scale-105 shadow-neon rounded-full transition-all duration-300 flex justify-center items-center">
+                        <span key={social.name} rel="noopener noreferrer" className="text-(--primary-color) hover:text-(--secondary-color)/80 w-6 h-6 hover:scale-105 shadow-neon rounded-full transition-all duration-300 flex justify-center items-center">
                             <Icon size={15} strokeWidth={2} />
-                        </a>
+                        </span>
                         )}
                     )}
                 </div>
